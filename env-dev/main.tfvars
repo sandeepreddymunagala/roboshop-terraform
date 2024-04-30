@@ -1,6 +1,6 @@
 env = "dev"
 
-component = {
+components = {
   frontend = {}
   mongodb = {}
   catalogue = {}
