@@ -1,4 +1,6 @@
-module "test" {
-  source = "git::https://github.com/sandeepreddymunagala/tf-module-app.git"
-  env = var.env
-}
+ module "instance" {
+   for_each = var.components
+   source = "git:: https://github.com/sandeepreddymunagala/tf-module-app.git"
+   component = each.key
+   env = var.env
+ }
