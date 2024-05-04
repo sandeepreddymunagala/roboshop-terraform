@@ -1,4 +1,4 @@
-env ="prod"
+env ="dev"
 components = {
   frontend = {}
   mongodb = {}
