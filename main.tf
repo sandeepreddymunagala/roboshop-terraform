@@ -3,5 +3,5 @@
    source    = "git::https://github.com/sandeepreddymunagala/tf-module-app.git"
    component = each.key
    env       = var.env
-   tag       = each.value["tags"]
+   tags       = each.value["tags"]
  }
