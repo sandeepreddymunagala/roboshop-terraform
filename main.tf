@@ -18,7 +18,7 @@ module "vpc" {
   tags = var.tags
 }
 
-/*module "app_server" {
+module "app_server" {
   source = "git::https://github.com/sandeepreddymunagala/tf-module-app.git"
   env = var.env
   tags =var.tags
@@ -27,7 +27,4 @@ module "vpc" {
   null)[0]
   vpc_id = lookup (lookup (module.vpc, "main", null), "vpc id", null)
 }
-*/
-output "subnet_id" {
-  value = var.vpc
-}
+
