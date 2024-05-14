@@ -57,3 +57,10 @@ vpc = {
 
 default_vpc_id        = "vpc-053c37932ccf923f5"
 default_vpc_rt        = "rtb-0a2b1e95368e669b9"
+
+rabbitmq = {
+  main = {
+    instance_type = "t2.micro"
+    component     = "rabbitmq"
+  }
+}
