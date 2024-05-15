@@ -8,3 +8,5 @@ variable "rabbitmq" {}
 variable "allow_ssh_cidr" {}
 variable "zone_id" {}
 variable "rds" {}
+variable "kms_key_arn" {}
+variable "kms_key_id" {}
