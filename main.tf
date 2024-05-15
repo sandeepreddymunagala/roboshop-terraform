@@ -73,7 +73,7 @@ module "rabbitmq" {
 
  }
 
-/* module "documentdb" {
+ module "documentdb" {
    source = "git::https://github.com/sandeepreddymunagala/tf-module-documentdb.git"
 
    for_each          = var.documentdb
@@ -91,7 +91,7 @@ module "rabbitmq" {
    kms_key_arn = var.kms_key_arn
  }
 
- module "elasticache" {
+/* module "elasticache" {
    source = "git::https://github.com/sandeepreddymunagala/tf-module-elasticache.git"
 
    for_each                = var.elasticache
