@@ -67,3 +67,23 @@ rabbitmq = {
     component     = "rabbitmq"
   }
 }
+rds = {
+  main = {
+    component      = "rds"
+    engine         = "aurora-mysql"
+    engine_version = "5.7.mysql_aurora.2.11.3"Aurora MySQL 3.05.2 (compatible with MySQL 8.0.32)
+    db_name        = "dummy"
+    instance_count = 1
+    instance_class = "db.t3.small"
+  }
+}
+
+documentdb = {
+  main = {
+    component         = "docdb"
+    engine            = "docdb"
+    engine_version    = "4.0.0"
+    db_instance_count = 1
+    instance_class    = "db.t3.medium"
+  }
+}
