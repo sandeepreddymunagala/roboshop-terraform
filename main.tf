@@ -67,6 +67,7 @@ module "rabbitmq" {
 
    tags           = var.tags
    env            = var.env
+   kms_key_id     = var.kms_key_id
    kms_key_arn    = var.kms_key_arn
    sg_subnet_cidr = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), "app", null), "cidr_block", null)
 
