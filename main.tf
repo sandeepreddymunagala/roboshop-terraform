@@ -74,7 +74,7 @@ module "rabbitmq" {
 
  }
 
- module "documentdb" {
+/* module "documentdb" {
    source = "git::https://github.com/sandeepreddymunagala/tf-module-documentdb.git"
 
    for_each          = var.documentdb
@@ -110,4 +110,4 @@ module "rabbitmq" {
    tags        = var.tags
    env         = var.env
    kms_key_arn = var.kms_key_arn
- }
+ }*/
