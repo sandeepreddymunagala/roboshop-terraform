@@ -1,40 +1,4 @@
 env ="dev"
-components = {
-  frontend = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  mongodb = {
-    tags = { env = "dev"}
-  }
-  catalogue = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  redis = {
-    tags = { env = "dev"}
-  }
-  user = {
-    tags = { env = "dev"}
-  }
-  cart = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  mysql = {
-    tags = { env = "dev"}
-  }
-  shipping = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  rabbitmq = {
-    tags = { env = "dev"}
-  }
-  payment = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  dispatch = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-}
-
 tags = {
   company_name  = "XYZ Tech"
   business      = "ecommerce"
@@ -98,5 +62,92 @@ elasticache = {
     num_node_groups         = 1
     node_type               = "cache.t3.micro"
     parameter_group_name    = "default.redis6.x.cluster.on"
+  }
+}
+
+alb = {
+  public = {
+    name               = "public"
+    internal           = false
+    load_balancer_type = "application"
+    subnet_ref         = "public"
+  }
+  private = {
+    name               = "private"
+    internal           = true
+    load_balancer_type = "application"
+    subnet_ref         = "app"
+  }
+}
+
+apps = {
+  cart = {
+    component        = "cart"
+    app_port         = 8080
+    instance_type    = "t3.micro"
+    desired_capacity = 1
+    max_size         = 1
+    min_size         = 1
+    subnet_ref       = "app"
+    lb_ref           = "private"
+    lb_rule_priority = 100
+  }
+  catalogue = {
+    component          = "catalogue"
+    app_port           = 8080
+    instance_type      = "t3.small"
+    desired_capacity   = 1
+    max_size           = 1
+    min_size           = 1
+    subnet_ref         = "app"
+    lb_ref             = "private"
+    lb_rule_priority   = 101
+    extra_param_access = ["arn:aws:ssm:us-east-1:739561048503:parameter/roboshop.dev.docdb.*"]
+  }
+  user = {
+    component          = "user"
+    app_port           = 8080
+    instance_type      = "t3.small"
+    desired_capacity   = 1
+    max_size           = 1
+    min_size           = 1
+    subnet_ref         = "app"
+    lb_ref             = "private"
+    lb_rule_priority   = 102
+    extra_param_access = ["arn:aws:ssm:us-east-1:739561048503:parameter/roboshop.dev.docdb.*"]
+  }
+  shipping = {
+    component          = "shipping"
+    app_port           = 8080
+    instance_type      = "t3.small"
+    desired_capacity   = 1
+    max_size           = 1
+    min_size           = 1
+    subnet_ref         = "app"
+    lb_ref             = "private"
+    lb_rule_priority   = 103
+    extra_param_access = ["arn:aws:ssm:us-east-1:739561048503:parameter/roboshop.dev.mysql.*"]
+  }
+  payment = {
+    component        = "payment"
+    app_port         = 8080
+    instance_type    = "t3.small"
+    desired_capacity = 1
+    max_size         = 1
+    min_size         = 1
+    subnet_ref       = "app"
+    lb_ref           = "private"
+    lb_rule_priority = 104
+  }
+  frontend = {
+    component        = "frontend"
+    app_port         = 80
+    instance_type    = "t3.small"
+    desired_capacity = 1
+    max_size         = 1
+    min_size         = 1
+    subnet_ref       = "web"
+    lb_ref           = "public"
+    lb_rule_priority = 100
   }
 }
