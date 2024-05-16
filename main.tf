@@ -18,7 +18,7 @@ module "vpc" {
   env = var.env
   tags = var.tags
 }
-
+/*
 module "app_server" {
   source = "git::https://github.com/sandeepreddymunagala/tf-module-app.git"
 
@@ -91,7 +91,7 @@ module "rabbitmq" {
    kms_key_arn = var.kms_key_arn
  }
 
-/* module "elasticache" {
+ module "elasticache" {
    source = "git::https://github.com/sandeepreddymunagala/tf-module-elasticache.git"
 
    for_each                = var.elasticache
