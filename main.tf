@@ -45,7 +45,7 @@ module "apps" {
 
 }
 
-/*
+
 module "rabbitmq" {
   source = "git::https://github.com/sandeepreddymunagala/tf-module-rabbitmq.git"
 
@@ -123,7 +123,7 @@ module "rabbitmq" {
    tags        = var.tags
    env         = var.env
    kms_key_arn = var.kms_key_arn
- }*/
+ }
 
  module "alb" {
    source = "git::https://github.com/sandeepreddymunagala/tf-module-alb.git"
