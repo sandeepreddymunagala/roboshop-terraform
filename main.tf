@@ -12,7 +12,7 @@ module "vpc" {
 }
 
 module "app" {
-  source = "git::https://github.com/sandeepreddymunagala/tf-module-vpc.git"
+  source = "git::https://github.com/sandeepreddymunagala/tf-module-app.git"
 
   env =var.env
   tags =var.tags
