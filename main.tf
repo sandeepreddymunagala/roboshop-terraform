@@ -11,3 +11,16 @@ module "vpc" {
   default_vpc_rt = var.default_vpc_rt
 }
 
+/*module "app" {
+  source = "git::https://github.com/sandeepreddymunagala/tf-module-vpc.git"
+
+  subnet_id =
+
+  env =var.env
+  tags =var.tags
+  component ="test"
+}*/
+
+output "subnet" {
+  value = module.vpc
+}
