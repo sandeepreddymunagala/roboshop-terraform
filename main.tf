@@ -18,8 +18,8 @@ module "app" {
   tags =var.tags
   component ="test"
 
-  subnets            = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), each.value["subnet_ref"], null), "subnet_ids", null)
-  vpc_id             = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
+  subnet_id = lookup(lookup(lookup(lookup(module.vpc,"main",null),"subnet_ids",null),"app",null),"subnet_id",null)[0]
+  vpc_id = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
 
 
 }
